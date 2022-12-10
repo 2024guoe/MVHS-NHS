@@ -1,0 +1,165 @@
+@media screen and (max-width: 1000px) {
+    nav .logoImage {
+        height: 8vh;
+        padding: 4vh 4vh 4vh 4vh;
+        float: left;
+        position: fixed;
+        transition: all 200ms ease-in-out;
+    }
+    .logoImage.logoImageScrolled {
+        height: 8vh;
+        transition: all 200ms ease-in-out;
+        padding-top: 4vh;
+    }
+    nav {
+        height: 12vh;
+        z-index: 1;
+        margin: 0px;
+        position: fixed !important;
+        width: 100vw;
+        background-color: white;
+        transition: all 250ms ease-in-out;
+        display: flex;
+        align-items: center;
+    }
+    /*
+    nav.navScrolled {
+        background-color: white;
+        transition: all 250ms ease-in-out;
+        height: 12vh;
+        position: fixed;
+    }*/
+    nav.navShow {
+        background-color: white;
+        transition: all 250ms ease-in-out;
+    }
+    nav ul {
+        top: 15%;
+        width: 100vw;
+        position: absolute;
+        visibility: hidden;
+        margin: 0;
+        padding: 2vh 0 2vh 0;
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        opacity: 0;
+        background-color: white;
+        transition: opacity 300ms ease-in-out;
+    }
+    nav ul.show {
+        top: 15%;
+        width: 100vw;
+        visibility: visible;
+        position: absolute;
+        margin: 0;
+        padding: 2vh 0 2vh 0;
+        display: flex;
+        opacity: 1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        transition: opacity 300ms ease-in-out;
+    }
+    nav li {
+        display: inline-block;
+        margin: 0 35px;
+        position: relative;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    nav a {
+        font-family: 'museo-sans', sans-serif;
+        font-weight: 300;
+        color: #081c15;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 16px;
+    }
+    nav .hamburger {
+        background-color: transparent;
+        border: none;
+        font-size: 30px;
+        display: flex;
+        align-self: center;
+        position: absolute;
+        left: 80vw;
+    }
+    .mainBackgroundImage {
+        background-attachment: scroll;
+    }
+    .chevrontext {
+        display: none;
+    }
+    #about {
+        margin-top: -5vh;
+        padding-top: 5vh;
+    }
+    .flexcontainerEvents {
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        align-self: center;
+    }
+    .mobileEventsImage {
+        width: 70vw;
+    }
+    .eventsParagraphText {
+        width: 70vw;
+    }
+    .constitutionTitle {
+        font-size: 20px;
+    }
+    .contactEmail {
+        display: none;
+    }
+    .executiveboardPositions {
+        position: static;
+        display: flex;
+        justify-content: space-evenly;
+        text-align: center;
+        font-weight: 300;
+        font-size: 4vh;
+        margin: 10vh 10vw 10vh 10vw;
+        line-height: 5vh;
+    }
+    .envelopeButton {
+        background-color: transparent;
+        border: none;
+        display: flex;
+    }
+    .fa.fa-envelope {
+        color: black;
+        font-size: 3vh;
+        padding: 0 0 2vh 0;
+        margin: 0 0 3vh 0;
+        justify-content: center;
+        text-align: center;
+        width: 20vw;
+        display: flex;
+    }
+    .mobileEmailContainer {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 2vh 0 2vh 0;
+    }
+    .mobileEmailContainer.showEmails {
+        display: flex;
+    }
+    .contactEmail.mobile {
+        font-size: 2vh;
+        padding: 0 0 2vh 0;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        text-decoration: underline;
+    }
+    footer {
+        font-size: 1.5vh;
+    }
+}
