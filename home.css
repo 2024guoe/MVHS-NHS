@@ -1,0 +1,645 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #d2e0d2;
+    font-family: 'museo-sans';
+    font-weight: 300;
+}
+
+
+/* horizontal line formatting on index.html */
+
+hr {
+    margin: 2vh;
+    width: 98%;
+    display: flex;
+    align-self: center;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-block-start: 0;
+    padding-block-end: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+}
+
+
+/* for on page load and page exit animations */
+
+@keyframes transitionIn {
+    from {
+        opacity: 0;
+        /* transform: translateY(-20px); */
+    }
+    to {
+        opacity: 1;
+        /* transform: translateY(0); */
+    }
+}
+
+@keyframes transitionOut {
+    from {
+        opacity: 1;
+        /* transform: translateY(0); */
+    }
+    to {
+        opacity: 0;
+        /* transform: translateY(-20px); */
+    }
+}
+
+
+/* top menu bar */
+
+nav .logoImage {
+    height: 10vh;
+    padding: 2vh 4vh 4vh 6vh;
+    float: left;
+    position: fixed;
+    transition: all 200ms ease-in-out;
+    display: flex;
+}
+
+.logoImage.logoImageScrolled {
+    height: 8vh;
+    transition: all 200ms ease-in-out;
+    padding-top: 2vh;
+}
+
+nav {
+    font-family: 'museo-sans', sans-serif;
+    font-weight: 300;
+    height: 12vh;
+    z-index: 1;
+    margin: 0px;
+    position: fixed;
+    width: 100vw;
+    background-color: transparent;
+    transition: all 250ms ease-in-out;
+    display: flex;
+}
+
+nav.navScrolled {
+    background-color: white;
+    transition: all 250ms ease-in-out;
+    height: 12vh;
+    display: flex;
+}
+
+nav ul {
+    float: left;
+    margin-left: 15vw;
+    margin-top: 0;
+    padding: 2vh 0 2vh 0;
+    display: flex;
+    align-self: center;
+}
+
+nav li {
+    display: flex;
+    margin: 0 70px 0 0;
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+nav a {
+    color: #081c15;
+    text-decoration: none;
+    /* text-transform: uppercase; */
+    font-size: 18px;
+    cursor: pointer;
+}
+
+nav a::before {
+    content: ' ';
+    display: block;
+    height: 3px;
+    width: 0%;
+    top: 0;
+    position: absolute;
+    background-color: black;
+    transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+    width: 100%
+}
+
+
+/* mobile menu (hidden normally) */
+
+nav .hamburger {
+    display: none;
+}
+
+.mainBackgroundImage {
+    background-image: url(images/greengeometric.jpg);
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    overflow-x: hidden;
+    z-index: -2;
+    position: relative;
+    opacity: 100%;
+}
+
+.mainTitle {
+    position: absolute;
+    font-family: 'museo-sans';
+    font-weight: 500;
+    font-size: 50px;
+    top: 40vh;
+    margin: 0 15vw 0 15vw;
+    z-index: -2;
+    opacity: 100%;
+    transition: all 250ms ease-in-out;
+    animation: transitionIn 500ms;
+}
+
+.mainTitle.transitionOut {
+    animation: transitionOut 500ms;
+}
+
+.mainSubtitle {
+    font-family: 'museo-sans';
+    font-weight: 300;
+    font-size: 24px;
+    padding-top: 10px;
+}
+
+.mainTitleScrolled {
+    opacity: 0%;
+    transition: all 250ms ease-in-out;
+}
+
+
+/* SCROLL DOWN ARROW CSS */
+
+.container {
+    position: relative;
+    width: 100vw;
+    text-align: center;
+    top: 85%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    z-index: 1;
+}
+
+.mainBackgroundImage .container {
+    opacity: inherit !important;
+}
+
+.chevron {
+    position: absolute;
+    width: 28px;
+    height: 8px;
+    opacity: 0;
+    transform: scale3d(0.5, 0.5, 0.5);
+    animation: move 3s ease-out infinite;
+}
+
+.chevron:first-child {
+    animation: move 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+    animation: move 3s ease-out 2s infinite;
+}
+
+.chevron:before,
+.chevron:after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 51%;
+    background: BLACK;
+}
+
+.chevron:before {
+    left: 0;
+    transform: skew(0deg, 30deg);
+}
+
+.chevron:after {
+    right: 0;
+    width: 50%;
+    transform: skew(0deg, -30deg);
+}
+
+@keyframes move {
+    25% {
+        opacity: 1;
+    }
+    33% {
+        opacity: 1;
+        transform: translateY(30px);
+    }
+    67% {
+        opacity: 1;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+    }
+}
+
+.chevrontext {
+    display: block;
+    font-size: 16px;
+    padding-bottom: 5vh;
+    color: black;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: .25;
+    animation: pulse 2s linear alternate infinite;
+}
+
+@keyframes pulse {
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* END OF ARROW CSS */
+
+
+/* main formatting for all text */
+
+.paragraphText {
+    position: static;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 45px;
+    margin: 0 15vw 10vh 15vw;
+    z-index: 0;
+}
+
+
+/* for links so they don't change color when already visited */
+
+a:visited.visitedColor,
+a:link.visitedColor {
+    color: rgb(1, 86, 146);
+}
+
+
+/* beginning of about section on index */
+
+.aboutTitle {
+    font-family: 'museo-sans';
+    font-weight: 300;
+    position: static;
+    font-size: 50px;
+    top: 40vh;
+    margin: 10vh 15vw 10vh 15vw;
+    z-index: -2;
+    opacity: 100%;
+    transition: all 250ms ease-in-out;
+}
+
+.aboutSubtitle {
+    font-family: 'museo-sans';
+    font-weight: 300;
+    position: static;
+    font-size: 40px;
+    margin: 0vh 15vw 10vh 15vw;
+    z-index: -2;
+}
+
+#about {
+    margin-top: -10vh;
+    padding-top: 10vh;
+}
+
+.parentAbout {
+    background-color: #d2e0d2;
+}
+
+.aboutDark {
+    background-color: rgb(71, 133, 105);
+    padding: 5vh 0vw;
+    margin-bottom: 5vh;
+}
+
+.tutoringTitle {
+    font-family: 'museo-sans';
+    font-weight: 300;
+    position: static;
+    font-size: 40px;
+    margin: 10vh 0 5vh 0;
+    color: white;
+}
+.tutoringText {
+    color:white;
+}
+a:visited.visitedColorTutoring,
+a:link.visitedColorTutoring {
+    color: rgb(168, 219, 255);
+}
+
+.contactTitle {
+    font-family: 'museo-sans';
+    font-weight: 300;
+    position: static;
+    font-size: 40px;
+    margin: 10vh 0 5vh 0;
+}
+
+/* instagram logo */
+
+.fa.fa-instagram {
+    background: #125688;
+    color: white;
+    padding: 15px;
+    font-size: 25px;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    text-decoration: none;
+    text-align: center;
+}
+
+.fa-instagram:hover {
+    opacity: 0.7;
+}
+
+
+/* beginning of events.html */
+
+.eventsTitle {
+    font-weight: 300;
+    position: static;
+    font-size: 4vh;
+    top: 40vh;
+    margin: -10vh 10vw 10vh 10vw;
+    padding: 20vh 0 0 0;
+    text-align: center;
+}
+
+.eventsNav {
+    margin: 10vh 0 5vh 15vw;
+    line-height: 40px;
+    padding-left: 5vh;
+    border: solid #000;
+    border-width: 0 0 0 1px;
+}
+
+.eventsNav ul li {
+    list-style-type: none;
+}
+
+.eventsNav ul li a {
+    color: rgb(1, 86, 146);
+}
+
+.parentEvents {
+    background-color: #d2e0d2;
+    margin-top: 20vh;
+}
+
+.parentEvents:nth-child(even) {
+    background-color: rgb(133, 171, 150);
+    margin-top: 20vh;
+}
+
+
+/* main flex container for each event, flexes horizontally for some reasons this has a fat bottom margin idk*/
+
+.flexcontainerEvents {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 5vw 10vh 5vw;
+}
+
+
+/* used for column flexing (vertical) */
+
+.subflexcontainerEvents {
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+}
+
+.eventsParagraphText {
+    width: 30vw;
+    position: static;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 40px;
+    margin-bottom: 10vh;
+    text-align: left;
+}
+
+.eventsParagraphText.bottom {
+    margin-bottom: 0;
+    padding-bottom: 10vh;
+    text-align: center;
+    align-self: center;
+    justify-content: center;
+}
+
+
+/* images for each event */
+
+.imageEvents {
+    width: 30vw;
+    display: flex;
+    align-self: center;
+    margin-bottom: 5vw;
+    box-shadow: -10px 10px 20px 0px gray;
+}
+
+
+/* beginning of Volunteering Opportunities Page */
+
+.vParent {
+    margin-top: 15vh;
+    display: flex;
+    justify-content: center;
+}
+
+.vParagraphText {
+    display: flex;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 40px;
+    align-self: center;
+}
+
+.vTable {
+    margin: 10vh 15vw 10vh 15vw;
+    border-collapse: collapse;
+}
+
+tr td {
+    border: 1px solid black;
+}
+
+td {
+    padding: 5px;
+}
+
+th {
+    padding: 10px;
+}
+
+
+/* beginning of constitution.html */
+
+.constitutionParent {
+    margin-top: 15vh;
+}
+.constitutionTitle {
+    font-family: 'museo-sans';
+    font-weight: 300;
+    position: static;
+    font-size: 30px;
+    margin: 10vh 0 5vh 0;
+    text-align: center;
+}
+.constitutionText {
+    font-size: 28;
+    text-align: center;
+}
+.constitutionEmbed {
+    padding-top: 0vh;
+    padding: 0vh 0 0 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.constitutionEmbediframe {
+    border: 1px solid black;
+    width: 50vw;
+    height: 80vh;
+    display: flex;
+    align-self: center;
+}
+
+@media screen and (max-width: 1200px) {
+    .constitutionEmbediframe {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .constitutionEmbediframe {
+        width: 90vw;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .constitutionEmbediframe {
+        width: 90vw;
+    }
+}
+
+
+/* beginning of executiveboard.html (don't ask why i have a "space" div i honestly don't know) */
+
+.space {
+    height: 15vh;
+}
+
+.executiveboardPositions {
+    position: static;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    font-weight: 300;
+    font-size: 4vh;
+    margin: 0 10vw 10vh 10vw;
+    line-height: 5vh;
+}
+
+.people {
+    font-size: 2vh;
+    display: flex;
+    justify-content: center;
+    padding: 5vh 0 5vh 0;
+    width: 20vw;
+    text-align: center;
+}
+
+.contactEmail {
+    font-size: 2vh;
+    display: flex;
+    justify-content: center;
+    padding: 0 0 15vh 0;
+    width: 20vw;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.envelopeButton {
+    display: none;
+}
+
+.fa.fa-envelope {
+    color: black;
+    font-size: 2vh;
+    width: 0px;
+    height: 0px;
+    display: none;
+}
+
+.flexcontainerExecBoard {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 5vw 0 5vw;
+}
+
+.mobileEmailContainer {
+    display: none;
+}
+
+.executiveboardPictures {
+    display: flex;
+    max-width: 100%;
+    justify-content: space-evenly;
+    width: 20vw;
+    height: 20vw;
+    padding: 0 0vw 0 0vw;
+    border-radius: 100%;
+    object-fit: cover;
+}
+
+
+/* end of all pages */
+
+footer {
+    background-image: linear-gradient(rgba(45, 106, 79, 0.9), rgb(71, 133, 105));
+    text-align: center;
+    padding: 3vh 0 3vh 0;
+    font-weight: 300;
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footerText {
+    display: flex;
+}
